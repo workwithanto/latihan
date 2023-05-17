@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,4 +28,7 @@ Route::prefix('dashboard')->group(function() {
     Route::get('/', [DashboardController::class, 'index']);
 
     Route::get('/category', [CategoryController::class, 'index']);
+
+    Route::get('/post', [PostController::class, 'index']);
+    Route::get('/post/create', [PostController::class, 'create']);
 });
