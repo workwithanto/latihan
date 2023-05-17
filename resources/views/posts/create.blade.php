@@ -1,5 +1,9 @@
 @extends('layouts.dashboard')
 
+@push('style')
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+@endpush
+
 @section('content')
 <div class="container-fluid">
     <div class="card shadow mb-4 w-75">
@@ -25,18 +29,33 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Judul</label>
-                        <input type="text" class="form-control form-control-user" placeholder="Belajar Laravel Dasar">
+                        <input type="text" name="title" class="form-control form-control-user" placeholder="Belajar Laravel Dasar">
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <label for="validationDefault04">State</label>
-                    <select class="custom-select" id="validationDefault04" required>
+                    <label for="validationDefault04">Category</label>
+                    <select class="custom-select" name="category_id" id="validationDefault04" required>
                         <option selected disabled value="">Choose...</option>
-                        <option>...</option>
+                        @foreach($categories as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
                     </select>
                 </div>
+            </div>
+            <div class="row">
+                <textarea name="body" rows="5" class="summernote form-control"></textarea>
             </div>
         </div>
     </div>
 </div>
 @endsection
+
+@push('script')
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+<script>
+    $('.summernote').summernote({
+        height: 200
+    })
+</script>
+@endpush
