@@ -14,6 +14,10 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-body">
+            <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#modal_add_category">
+            Tambah Kategori
+            </button>
+
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -39,9 +43,8 @@
                             <div class="dropdown">
                                 <i class="fa fa-ellipsis-v" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <a class="dropdown-item" data-toggle="modal" href="#modal_edit_category{{$category->id}}">Edit</a>
+                                    <a class="dropdown-item" href="#">Delete</a>
                                 </div>
                             </div>
                             </td>
@@ -54,6 +57,58 @@
     </div>
 
 </div>
+
+<!-- Mdal Tambah Kategori -->
+<div class="modal fade" id="modal_add_category" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fs-5" id="exampleModalLabel">Tambah Kategori</h5>
+      </div>
+      <form action="{{ route('category.index.store') }}" method="post">
+        @csrf
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="">Name </label>
+                <input type="text" name="name" class="form-control" required>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+@foreach ($categories as $item)
+<div class="modal fade" id="modal_edit_category{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fs-5" id="exampleModalLabel">Edit Kategori</h5>
+      </div>
+      <form action="{{ route('category.index.update', $item->id) }}" method="post">
+        @csrf
+        @method('PATCH')
+        <div class="modal-body">
+            <div class="form-group">
+                <label for="">Name </label>
+                <input type="text" name="name" class="form-control" value="{{ $item->name }}" required>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+@endforeach
+
+
 @endsection
 
 @push('script')
