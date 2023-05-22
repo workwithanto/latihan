@@ -15,12 +15,21 @@
     <div class="card shadow mb-4">
         <div class="card-body">
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> temp-branch
             <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_add_category">
                 Launch demo modal
             </button> -->
 
             <a href="/dashboard/category/create" class="btn btn-primary mb-3">Tambah Kategori</a>
 
+<<<<<<< HEAD
+=======
+>>>>>>> 23a424a (add store, update, delete (for category))
+>>>>>>> temp-branch
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -46,11 +55,22 @@
                             <div class="dropdown">
                                 <i class="fa fa-ellipsis-v" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+                                    <a class="dropdown-item" data-toggle="modal" href="#modal_edit_category{{$category->id}}">Edit</a>
+                                    <a class="dropdown-item" href="#">Delete</a>
+=======
+>>>>>>> temp-branch
                                     <a class="dropdown-item" href="/dashboard/category/edit/{{$category->id}}"><i class="fas fa-edit pr-1 text-primary"></i> Edit</a>
                                     <a class="dropdown-item" href="/dashboard/category/delete/{{$category->id}}" 
                                     onclick="return confirm('Apakah anda yakin? Data akan dihapus!')">
                                       <i class="fas fa-trash-alt pr-1 text-danger"></i> Delete
                                     </a>
+<<<<<<< HEAD
+=======
+>>>>>>> 23a424a (add store, update, delete (for category))
+>>>>>>> temp-branch
                                 </div>
                             </div>
                             </td>
@@ -64,6 +84,11 @@
 
 </div>
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> temp-branch
 <!-- Modal -->
 <div class="modal fade" id="modal_add_category" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -82,6 +107,10 @@
     </div>
   </div>
 </div>
+<<<<<<< HEAD
+=======
+>>>>>>> 23a424a (add store, update, delete (for category))
+>>>>>>> temp-branch
 
 @endsection
 

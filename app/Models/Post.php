@@ -12,10 +12,10 @@ class Post extends Model
     protected $guarded = ['id'];
 
     public function user(){
-        return $this->hasOne(User::class);
+        return $this->hasOne(User::class, 'id', 'author_id');
     }
 
     public function category(){
-        return $this->hasOne(Category::class);
+        return $this->hasOne(Category::class, 'id', 'category_id');
     }
 }

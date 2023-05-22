@@ -36,4 +36,5 @@ Route::prefix('dashboard')->group(function() {
 
     Route::get('/post', [PostController::class, 'index']);
     Route::get('/post/create', [PostController::class, 'create']);
+    Route::post('/post/store', [PostController::class, 'store'])->name('posts.create.store');
 });
