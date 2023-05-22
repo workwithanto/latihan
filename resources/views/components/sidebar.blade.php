@@ -28,14 +28,14 @@
 
     <!-- Nav Item - Charts -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="/dashboard/category">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Category</span></a>
     </li>
 
     <!-- Nav Item - Tables -->
     <li class="nav-item">
-        <a class="nav-link" href="tables.html">
+        <a class="nav-link" href="/dashboard/post">
             <i class="fas fa-fw fa-book"></i>
             <span>Post</span></a>
     </li>

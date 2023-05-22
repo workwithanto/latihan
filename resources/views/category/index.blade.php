@@ -14,6 +14,13 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-body">
+
+            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal_add_category">
+                Launch demo modal
+            </button> -->
+
+            <a href="/dashboard/category/create" class="btn btn-primary mb-3">Tambah Kategori</a>
+
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -39,9 +46,11 @@
                             <div class="dropdown">
                                 <i class="fa fa-ellipsis-v" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <a class="dropdown-item" href="/dashboard/category/edit/{{$category->id}}"><i class="fas fa-edit pr-1 text-primary"></i> Edit</a>
+                                    <a class="dropdown-item" href="/dashboard/category/delete/{{$category->id}}" 
+                                    onclick="return confirm('Apakah anda yakin? Data akan dihapus!')">
+                                      <i class="fas fa-trash-alt pr-1 text-danger"></i> Delete
+                                    </a>
                                 </div>
                             </div>
                             </td>
@@ -54,6 +63,26 @@
     </div>
 
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal_add_category" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Kategori</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 @endsection
 
 @push('script')
