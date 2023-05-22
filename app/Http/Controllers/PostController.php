@@ -31,4 +31,10 @@ class PostController extends Controller
         ]);
         return redirect()->back();
     }
+
+    public function edit($id){
+        $post = Post::whereId($id)->first();
+        $category = Category::all();
+        return view('posts.edit', compact('category','post'));
+    }
 }

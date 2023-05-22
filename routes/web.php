@@ -35,6 +35,9 @@ Route::prefix('dashboard')->group(function() {
     Route::get('/category/delete/{id}', [CategoryController::class, 'destroy'])->name('category.index.destroy');
 
     Route::get('/post', [PostController::class, 'index']);
-    Route::get('/post/create', [PostController::class, 'create']);
+    Route::get('/post/create', [PostController::class, 'create'])->name('posts.create');
     Route::post('/post/store', [PostController::class, 'store'])->name('posts.create.store');
+    Route::get('/post/edit/{id}', [PostController::class, 'edit'])->name('posts.edit');
+    Route::patch('/post/update/{id}', [PostController::class, 'update'])->name('posts.edit.update');
+    Route::get('/post/delete/{id}', [PostController::class, 'destroy'])->name('posts.index.destroy');
 });

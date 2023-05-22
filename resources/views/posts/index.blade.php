@@ -14,7 +14,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-body">
-            <a href="#" class="btn btn-primary mb-3 px-4">Buat Post</a>
+            <a href="{{ route('posts.create') }}" class="btn btn-primary mb-3 px-4">Buat Post</a>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
@@ -44,9 +44,8 @@
                             <div class="dropdown">
                                 <i class="fa fa-ellipsis-v" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <a class="dropdown-item" href="/dashboard/post/edit/{{$post->id}}"><i class="fas fa-edit mr-1 text-primary"></i> Edit</a>
+                                    <a class="dropdown-item" href="#"><i class="fas fa-trash-alt mr-1 text-danger"></i> Delete</a>
                                 </div>
                             </div>
                             </td>
