@@ -38,7 +38,11 @@
                     <div class="col-md-6">
                         <label for="validationDefault04">Category</label>
                         <select class="custom-select" name="category_id" id="validationDefault04" required>
-                            <option selected value="{{$post->category_id}}">{{$post->category->name ?? ''}}</option>
+                            
+                            <option selected value="{{$post->category_id}}">
+                                {{$post->category->name ?? ''}}
+                            </option>
+
                             <option disabled value="">Choose...</option>
                             @foreach($category as $item)
                                 <option value="{{ $item->id }}">{{ $item->name }}</option>

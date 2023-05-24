@@ -37,4 +37,15 @@ class PostController extends Controller
         $category = Category::all();
         return view('posts.edit', compact('category','post'));
     }
+
+    public function update(Request $request, $id){
+        $post = Post::find($id);
+        $post->update([
+            'title' => $request->title,
+            'slug' => Str::slug($request->title),
+            'body' => $request->body,
+            'category_id' => $request->category_id
+        ]);
+        return redirect()->back();
+    }
 }
