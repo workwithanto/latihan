@@ -18,6 +18,7 @@
                 Launch demo modal
             </button> -->
 
+<<<<<<< HEAD
             <!-- <button class="btn btn-success mb-2 hiden" id="btPrint" onclick="createPDF()" type="submit" data-bs-toggle="tooltip" data-placement="top" title="Cetak Laporan Aktifitas"><i data-feather="printer"></i> Cetak</button> -->
 
             <button class="btn btn-primary mb-3" onclick="createPDF()" >Export</button>
@@ -67,6 +68,50 @@
               </div>
             </div>
 
+=======
+            <a href="/dashboard/category/create" class="btn btn-primary mb-3">Tambah Kategori</a>
+
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Name</th>
+                            <th>Slug</th>
+                            <th>Posts</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @php
+                        $no = 1;
+                        @endphp
+                        @foreach($categories as $category)
+                        <tr>
+                            <td>{{ $no++ }}</td>
+                            <td>{{ $category->name }}</td>
+                            <td>{{ $category->slug }}</td>
+                            <td>{{ $category->posts->count() }}</td>
+                            <td>
+                            <div class="dropdown">
+                                <i class="fa fa-ellipsis-v" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" data-toggle="modal" href="#modal_edit_category{{$category->id}}">Edit</a>
+                                    <a class="dropdown-item" href="#">Delete</a>
+                                    <a class="dropdown-item" href="/dashboard/category/edit/{{$category->id}}"><i class="fas fa-edit pr-1 text-primary"></i> Edit</a>
+                                    <a class="dropdown-item" href="/dashboard/category/delete/{{$category->id}}" 
+                                    onclick="return confirm('Apakah anda yakin? Data akan dihapus!')">
+                                      <i class="fas fa-trash-alt pr-1 text-danger"></i> Delete
+                                    </a>
+                                </div>
+                            </div>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+>>>>>>> f864dbe83a4f6aadcf3442212e0c65343ee57826
         </div>
     </div>
 
@@ -91,8 +136,11 @@
   </div>
 </div>
 
+<<<<<<< HEAD
 @include('category.export')
 
+=======
+>>>>>>> f864dbe83a4f6aadcf3442212e0c65343ee57826
 @endsection
 
 @push('script')
