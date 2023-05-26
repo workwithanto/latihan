@@ -1,9 +1,12 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\PostController;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +24,9 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
+Route::get('/', [BlogController::class, 'welcome'])->name('welcome');
+Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
